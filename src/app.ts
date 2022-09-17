@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 
+import { router } from "~routes/apiV1";
 import { errorHandler } from "~middlewares/errorHandler";
-import { Joi, celebrate } from "celebrate";
 
 const app = express();
 
@@ -12,14 +12,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.get("/", celebrate({
-  query: {
-    name: Joi.string().required(),
-  }
-}), (req, res) => {
-  throw new Error("test")
-  res.json({ message: "hello world" });
-});
+app.use("/api/v1", router);
 
 app.use(errorHandler);
 
