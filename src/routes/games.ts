@@ -32,13 +32,16 @@ router.get(
 
     const prismaAdsRepository = new PrismaAdsRepository();
 
-    const getAdsByGameUseCase = new GetAdsByGameUseCase(
-      prismaAdsRepository
-    );
+    const getAdsByGameUseCase = new GetAdsByGameUseCase(prismaAdsRepository);
 
     const gameAds = await getAdsByGameUseCase.handle(gameId);
 
-    return response.status(200).json(gameAds);
+    const formattedGameAds = gameAds.map((ad) => ({
+      ...ad,
+      weekDays: ad.weekDays.split(","),
+    }));
+
+    return response.status(200).json(formattedGameAds);
   }
 );
 
