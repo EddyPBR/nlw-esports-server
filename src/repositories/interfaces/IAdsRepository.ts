@@ -10,4 +10,8 @@ export interface IAdsRepository {
       hourEnd: number;
     }[]
   >;
+
+  getDiscordByAdId: (adId: string) => Promise<{
+    discord: string;
+  }>;
 }

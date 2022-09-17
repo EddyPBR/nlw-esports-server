@@ -21,4 +21,15 @@ export class PrismaAdsRepository implements IAdsRepository {
       },
     });
   }
+
+  async getDiscordByAdId(adId: string) {
+    return await prisma.ad.findUniqueOrThrow({
+      select: {
+        discord: true,
+      },
+      where: {
+        id: adId,
+      },
+    });
+  }
 }
