@@ -1,16 +1,17 @@
-import "dotenv/config";
-import cors from "cors";
-import express from "express";
-const app = express();
+import dotenv from "dotenv";
 
-app.use(cors());
-
-app.disable("x-powered-by");
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+dotenv.config({
+  path: ".env" + process.env.NODE_ENV,
 });
 
-app.listen(process.env.PORT || 3333, () => {
-  console.log(`Listening on port: ${process.env.PORT}`);
-});
+import { app } from "./app";
+
+app.listen(process.env.PORT, () =>
+  console.log(
+    [
+      "SERVER IS RUNNING:",
+      "ENV: " + process.env.NODE_ENV,
+      "PORT: " + process.env.PORT,
+    ].join("\n")
+  )
+);
