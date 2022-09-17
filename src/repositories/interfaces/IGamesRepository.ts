@@ -1,5 +1,21 @@
-import type { Game, Ad } from "@prisma/client";
-
 export interface IGamesRepository {
-  get: () => Promise<(Game & { ads: Ad[] })[]>;
+  get: () => Promise<
+    {
+      id: string;
+      title: string;
+      bannerUrl: string;
+      ads: {
+        id: string;
+        name: string;
+        yearsPlaying: number;
+        discord: string;
+        weekDays: string;
+        hourStart: number;
+        hourEnd: number;
+        useVoiceChanner: boolean;
+        createdAt: Date;
+        gameId: string;
+      }[];
+    }[]
+  >;
 }
