@@ -20,7 +20,8 @@
     "@prisma/client": "4.3.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1"
   },
   "scripts": {
     "dev": "NODE_ENV=development ts-node-dev --exit-child -r dotenv/config -r tsconfig-paths/register --respawn --transpile-only --files --ignore-watch node_modules --no-notify src/server.ts"
