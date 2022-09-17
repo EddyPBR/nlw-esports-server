@@ -31,9 +31,15 @@ export const errorHandler = (
     });
   }
 
-  if (error instanceof Prisma.PrismaClientKnownRequestError) {
+  if (error instanceof Prisma.PrismaClientKnownRequestError || error instanceof Prisma.PrismaClientUnknownRequestError) {
     return response.status(500).json({
       message: error.message
+    });
+  }
+
+  if (error?.name === "NotFoundError") {
+    return response.status(404).json({
+      message: "Not found"
     });
   }
 
