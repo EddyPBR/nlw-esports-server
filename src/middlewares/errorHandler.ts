@@ -1,6 +1,7 @@
 import { isCelebrateError } from "celebrate";
 import type { Request, Response, NextFunction } from "express";
 import { AppException } from "~exceptions/AppException";
+import { Prisma } from "@prisma/client";
 
 export const errorHandler = (
   error: Error,
@@ -26,7 +27,13 @@ export const errorHandler = (
     }, [] as string[]);
 
     return response.status(400).json({
-      message: errors[0], // return only the first error
+      message: errors[0] ?? "General validation error", // return only the first error
+    });
+  }
+
+  if (error instanceof Prisma.PrismaClientKnownRequestError) {
+    return response.status(500).json({
+      message: error.message
     });
   }
 
