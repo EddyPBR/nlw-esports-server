@@ -14,7 +14,7 @@ export const errorHandler = (
   }
 
   if (isCelebrateError(error)) {
-    const types = ["body", "query", "headers"];
+    const types = ["body", "query", "headers", "params"];
 
     const errors = types.reduce((acc, type) => {
       const celebrateError = error.details.get(type)?.details[0].message;
