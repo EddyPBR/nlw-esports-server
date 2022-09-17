@@ -32,4 +32,19 @@ export class PrismaAdsRepository implements IAdsRepository {
       },
     });
   }
+
+  async createAd(data: {
+    gameId: string;
+    name: string;
+    yearsPlaying: number;
+    discord: string;
+    weekDays: string;
+    hourStart: number;
+    hourEnd: number;
+    useVoiceChannel: boolean;
+  }) {
+    return await prisma.ad.create({
+      data,
+    });
+  }
 }

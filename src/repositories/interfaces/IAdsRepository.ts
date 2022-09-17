@@ -14,4 +14,25 @@ export interface IAdsRepository {
   getDiscordByAdId: (adId: string) => Promise<{
     discord: string;
   }>;
+
+  createAd: (ad: {
+    gameId: string;
+    name: string;
+    yearsPlaying: number;
+    discord: string;
+    weekDays: string;
+    hourStart: number;
+    hourEnd: number;
+    useVoiceChannel: boolean;
+  }) => Promise<{
+    id: string;
+    gameId: string;
+    name: string;
+    yearsPlaying: number;
+    discord: string;
+    weekDays: string;
+    hourStart: number;
+    hourEnd: number;
+    useVoiceChannel: boolean;
+  }>;
 }
