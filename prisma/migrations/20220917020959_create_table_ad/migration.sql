@@ -7,7 +7,7 @@ CREATE TABLE "Ad" (
     "weekDays" TEXT NOT NULL,
     "hourStart" INTEGER NOT NULL,
     "hourEnd" INTEGER NOT NULL,
-    "useVoiceChanner" BOOLEAN NOT NULL,
+    "useVoiceChannel" BOOLEAN NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "gameId" TEXT NOT NULL,
     CONSTRAINT "Ad_gameId_fkey" FOREIGN KEY ("gameId") REFERENCES "Game" ("id") ON DELETE RESTRICT ON UPDATE CASCADE

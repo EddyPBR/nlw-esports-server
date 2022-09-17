@@ -4,7 +4,7 @@ export interface IAdsRepository {
       id: string;
       name: string;
       weekDays: string;
-      useVoiceChanner: boolean;
+      useVoiceChannel: boolean;
       yearsPlaying: number;
       hourStart: number;
       hourEnd: number;

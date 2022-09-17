@@ -8,7 +8,7 @@ export class PrismaAdsRepository implements IAdsRepository {
         id: true,
         name: true,
         weekDays: true,
-        useVoiceChanner: true,
+        useVoiceChannel: true,
         yearsPlaying: true,
         hourStart: true,
         hourEnd: true,

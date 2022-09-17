@@ -12,7 +12,7 @@ export interface IGamesRepository {
         weekDays: string;
         hourStart: number;
         hourEnd: number;
-        useVoiceChanner: boolean;
+        useVoiceChannel: boolean;
         createdAt: Date;
         gameId: string;
       }[];
