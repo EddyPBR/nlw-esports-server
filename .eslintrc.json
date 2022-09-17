@@ -14,6 +14,12 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "@typescript-eslint/no-unused-vars": [
+    "warn",
+    {
+      "argsIgnorePattern": "^_"
+    }
+  ],
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error"
